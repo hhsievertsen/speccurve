@@ -4,7 +4,7 @@
 
 Hi, 
 
-the "file spec_curve.do" shows how you can create  a specification curve (like the one below) in Stata. 
+the "file spec_curve_demo.do" shows how you can create  a specification curve (like the one below) in Stata. 
 
 ![Demo](demo.png)
 
