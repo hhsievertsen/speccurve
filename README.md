@@ -14,6 +14,9 @@ I created a small function to store estimates, but created the chart manually ba
 
 You are very welcome to use the code, change it, suggest improvements etc. You do not need to give me credit, but be kind to someone today. I was inspired to create this chart by Peter Eibich (https://www.demogr.mpg.de/en/institute/staff_directory_1899/peter_eibich_3594.htm) who had a similar chart in a presentation. So any credit should go to him
 
+There is a lot of material on this out there that is much more sophisticated. See for example the work of Uri Simonsohn (number 37): http://urisohn.com/
+
+
 Best,
 Hans
 
