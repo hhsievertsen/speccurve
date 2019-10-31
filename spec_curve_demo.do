@@ -1,6 +1,6 @@
 * specification curve demo by Hans H. Sievertsen h.h.sievertsen@bristol.ac.uk, 29/10-2019
 
-*clear
+clear
 cap program drop specchart
 program specchart
 syntax varlist, [replace] spec(string)
@@ -99,14 +99,18 @@ use "estimates.dta",clear
 * drop duplicates 
 duplicates drop covars cubic linear quadratic quartic sample*, force
 * sort estimates
-sort beta
+gsort -quartic -cubic -quadratic -linear -covars ///
+	-sample74 -sample72 -sample70 -sample68 -sample66 ///
+	-sample64 -sample62 -sample60 -sample58 -sample56 ///
+	-sample54 -sample52 -sample50, mfirst
+
 * rank
 gen rank=_n
 * gen indicators and scatters
 	local scoff=" "
 	local scon=" "
 	local ind=-1.5
-	foreach var in covars linear cubic  quadratic quartic   {
+	foreach var in covars linear quadratic cubic quartic   {
 	   cap gen i_`var'=`ind'
 	   local ind=`ind'-0.4
 	   local scoff="`scoff' (scatter i_`var' rank,msize(vsmall) mcolor(gs10))" 
@@ -141,24 +145,23 @@ tw  (scatter beta rank if main==1, mcolor(blue) msymbol(D)  msize(small)) ///  m
 gr_edit .yaxis1.add_ticks -1. `"Specification             "', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 gr_edit .yaxis1.add_ticks -1.5 `"Covariates"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 gr_edit .yaxis1.add_ticks -1.9 `"Linear"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -2.3 `"Cubic"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -2.7 `"Quadratic"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -2.3 `"Quadratic"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -2.7 `"Cubic"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 gr_edit .yaxis1.add_ticks -3.1 `"Quartic"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 
 gr_edit .yaxis1.add_ticks -3.6 `"Sample                     "', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -4.1 `"<=74"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -4.5 `"<=72"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -4.9 `"<=70"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -5.3 `"<=68"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -5.7 `"<=66"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -6.1 `"<=64"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -4.1 `"<=50"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -4.5 `"<=52"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -4.9 `"<=54"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -5.3 `"<=56"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -5.7 `"<=58"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -6.1 `"<=60"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 gr_edit .yaxis1.add_ticks -6.5 `"<=62"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -6.9 `"<=60"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -7.3 `"<=58"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -7.7 `"<=56"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -8.1 `"<=54"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -8.5 `"<=52"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
-gr_edit .yaxis1.add_ticks -8.9 `"<=50"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -6.9 `"<=64"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -7.3 `"<=66"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -7.7 `"<=68"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -8.1 `"<=70"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -8.5 `"<=72"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
+gr_edit .yaxis1.add_ticks -8.9 `"<=74"', custom tickset(major) editstyle(tickstyle(textstyle(size(vsmall))) )
 
 gr_edit .yaxis1.add_ticks 9 `"Coefficient"', custom tickset(major) editstyle(tickstyle(textstyle(size(small))) )
-
