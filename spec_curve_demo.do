@@ -98,12 +98,13 @@ forval i=50(2)74{
 use "estimates.dta",clear
 * drop duplicates 
 duplicates drop covars cubic linear quadratic quartic sample*, force
-* sort estimates
+/* sort specification by category */
 gsort -quartic -cubic -quadratic -linear -covars ///
 	-sample74 -sample72 -sample70 -sample68 -sample66 ///
 	-sample64 -sample62 -sample60 -sample58 -sample56 ///
 	-sample54 -sample52 -sample50, mfirst
-
+/* sort estimates by coefificent size, uncomment to activate sort by category */
+sort beta
 * rank
 gen rank=_n
 * gen indicators and scatters
