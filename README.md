@@ -13,7 +13,7 @@ the "file spec_curve_demo.do" shows how you can create  a specification curve (l
 
 
 ### Version: sorted by category (Brian Heseung Kim implementation)
-![Demo](ddemo_sorted_by_category.png)
+![Demo](demo_sorted_by_category.png)
 
 
 #### Use 
