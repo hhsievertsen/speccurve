@@ -12,7 +12,7 @@ the "file spec_curve_demo.do" shows how you can create  a specification curve (l
 ![Demo](demo.png)
 
 
-### Version: sorted by category (Brian Heseung Kim implementation)
+### Version 2: sorted by category (Brian Heseung Kim implementation)
 ![Demo](demo_sorted_by_category.png)
 
 
