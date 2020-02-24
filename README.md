@@ -4,7 +4,7 @@
 
 Hi, 
 
-the "file spec_curve_demo.do" shows how you can create  a specification curve (like the ones below) in Stata. The example uses the auto dataset in Stata. 
+the file "spec_curve_demo.do" shows how you can create  a specification curve (like the ones below) in Stata. The example uses the auto dataset in Stata. 
 
 
 ### Version 1: sorted by coefficient size
