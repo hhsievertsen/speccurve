@@ -30,6 +30,9 @@ I was inspired to create this chart by Peter Eibich (https://www.demogr.mpg.de/e
 
 There is a lot of material on this out there that is much more sophisticated. See for example the work of Uri Simonsohn (number 37): http://urisohn.com/
 
+#### For R users
+
+See this brilliant package: https://github.com/AakaashRao/starbility
 
 Best,
 Hans
