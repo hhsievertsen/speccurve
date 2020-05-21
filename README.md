@@ -34,6 +34,10 @@ There is a lot of material on this out there that is much more sophisticated. Se
 
 See this brilliant package: https://github.com/AakaashRao/starbility
 
+#### For Stata  users
+See this brilliant function: https://github.com/martin-andresen/speccurve
+
+
 Best,
 Hans
 
